@@ -9,20 +9,52 @@ body {
     padding: 0;
     height: 100%;
     overflow: visible;
-    display:flex; 
-    flex-direction:column; 
+    display:flex;
+    flex-direction:column;
 }
+
+/* Ajusta o tamanho da fontes dos botões */
+@media screen and (max-width: 1024px) {
+    #singlePlayer, #multiPlayer, #joinButton {
+        font-size: 22px;
+        width: 80vw;
+        margin: 10vw;
+        transition: width 500ms;
+    }
+
+    #gameMode {
+        padding-top: 25vh;
+    }
+
+    #gameMode #joinFormDiv {
+        font-size: 35px;
+    }
+
+    h1 {
+        font-size: 29px;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    #singlePlayer, #multiPlayer, #joinButton {
+        font-size: 28px;
+        width: 300px;
+        transition: width 500ms;
+    }
+
+    #gameMode #joinFormDiv {
+        padding-top: 25vh;
+        padding: 10px;
+        margin-top: 8%;
+        font-size: 35px;
+    }
+}
+
  #singlePlayer, #multiPlayer, #joinButton{
-    margin: 10px;
-    width: 300px;
     padding: 20px;
-    font-size: 22px;
+    margin: 10px;
  }
 
- #gameMode, #joinFormDiv{
-    padding: 10px; 
-    margin-top: 8%;
- }
 
  .black-3c85d {
     background-color: #E1E1E1;
@@ -56,7 +88,7 @@ body {
     margin-right: 7px;
     clear:both;
     float : right;
-    border-radius: 5px;    
+    border-radius: 5px;
     border-left: 12px solid transparent;
     border-right: 12px solid transparent;
 }
@@ -70,5 +102,5 @@ body {
     margin-bottom: 10px;
     clear:both;
     border-radius: 5px;
-    float : left;    
+    float : left;
 }
