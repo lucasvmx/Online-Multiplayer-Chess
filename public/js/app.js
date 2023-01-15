@@ -35,13 +35,13 @@ function onDragStart2(source, piece, position, orientation) {
     // do not pick up pieces if the game is over
     if (game.game_over()) {
         if (game.in_draw()) {
-            alert('Game Draw!!');
+            alert('Empate!');
         }
         else if (game.in_checkmate())
             if (turnt === 1) {
-                alert('You won the game!!');
+                alert('Você venceu o jogo!');
             } else {
-                alert('You lost!!');
+                alert('Você perdeu!');
             }
         return false
     }
@@ -127,7 +127,7 @@ socket.on('DisplayBoard', (fenString, userId, pgn) => {
     console.log(fenString)
     //This is to be done initially only
     if (userId != undefined) {
-        messageEl.textContent = 'Match Started!! Best of Luck...'
+        messageEl.textContent = 'Partida iniciada! Boa sorte ...'
         if (socket.id == userId) {
             config.orientation = 'black'
         }
@@ -154,20 +154,20 @@ socket.on('Dragging', id => {
 //To Update Status Element
 socket.on('updateStatus', (turn) => {
     if (board.orientation().includes(turn)) {
-        statusEl.textContent = "Your turn"
+        statusEl.textContent = "Sua vez de jogar"
     }
     else {
-        statusEl.textContent = "Opponent's turn"
+        statusEl.textContent = "Vez do oponente jogar"
     }
 })
 
 //If in check
 socket.on('inCheck', turn => {
     if (board.orientation().includes(turn)) {
-        statusEl.textContent = "You are in Check!!"
+        statusEl.textContent = "Você está em xeque!"
     }
     else {
-        statusEl.textContent = "Opponent is in Check!!"
+        statusEl.textContent = "Seu oponente está em xeque!"
     }
 })
 
@@ -176,21 +176,21 @@ socket.on('gameOver', (turn, win) => {
     config.draggable = false;
     if (win) {
         if (board.orientation().includes(turn)) {
-            statusEl.textContent = "You lost, better luck next time :)"
+            statusEl.textContent = "Você perdeu! Boa sorte da pŕoxima vez ... :)"
         }
         else {
-            statusEl.textContent = "Congratulations, you won!!"
+            statusEl.textContent = "Parabéns, você venceu!"
         }
     }
     else {
-        statusEl.value = 'Game Draw'
+        statusEl.value = 'Empate'
     }
 })
 
 //Client disconnected in between
 socket.on('disconnectedStatus', () => {
-    alert('Opponent left the game!!')
-    messageEl.textContent = 'Opponent left the game!!'
+    alert('O seu oponente abandonou a partida')
+    messageEl.textContent = 'O seu oponente saiu da partida!'
 })
 
 //Receiving a message
@@ -261,7 +261,7 @@ joinButtonEl.addEventListener('click', (e) => {
     var user = formEl[0].value, room = formEl[1].value
 
     if (!user || !room) {
-        messageEl.textContent = "Input fields can't be empty!"
+        messageEl.textContent = "Os campos não podem ser vazios!"
     }
     else {
         joinButtonEl.setAttribute("disabled", "disabled");
@@ -277,7 +277,7 @@ joinButtonEl.addEventListener('click', (e) => {
             else    //to reload even if negative confirmation
                 window.location.reload();
         })
-        messageEl.textContent = "Waiting for other player to join"
+        messageEl.textContent = "Aguardando oponente entrar na partida!"
     }
 })
 
