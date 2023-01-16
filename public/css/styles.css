@@ -38,14 +38,12 @@
         font-size: 42px;
     }
 
-    #grey_board, #orange_board, #green_board, #blue_board {
-        display: block;
-        width: 80vw;
-        margin: 6px;
+    h3 {
+        font-size: 36px;
     }
 
-    .ui.button {
-        font-size: 24px;
+    #status {
+        font-size: 36px;
     }
 
     .black-3c85d {
@@ -97,12 +95,43 @@
         height: 10vh;
     }
 
-    .ui.button {
-        height: 5vh;
-    }
-
     .ui.basic.label {
         font-size: 48px;
+    }
+
+    #grey_board, #orange_board, #green_board, #blue_board {
+        display: block;
+        width: 95vw;
+        margin: 10px;
+        font-size: 42px;
+    }
+
+    .ui.button {
+        font-size: 28px;
+        height: max-content;
+    }
+
+    .ui.button.black {
+        font-size: 48px;
+    }
+
+    #players, #rooms {
+        font-size: 3rem;
+    }
+
+    #exitGameButton {
+        text-align: center;
+    }
+
+    #myBoard {
+        width: fit-content;
+        margin: auto;
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+    }
+
+    #myExitButton {
+        text-align: center;
     }
 }
 
@@ -189,6 +218,17 @@
         clear:both;
         border-radius: 5px;
         float : left;
+    }
+
+    #myBoard {
+        width: 569px; 
+        margin: auto; 
+        margin-top: 10px; 
+        margin-bottom: 10px;
+    }
+
+    #myExitButton {
+        text-align: center; margin-bottom: 20px;
     }
 }
 
